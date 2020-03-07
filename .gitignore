@@ -1,4 +1,6 @@
 .DS_Store
+data/glove.6B
+data/semeval2019/send
 
 # User-specific stuff:
 .idea/workspace.xml
