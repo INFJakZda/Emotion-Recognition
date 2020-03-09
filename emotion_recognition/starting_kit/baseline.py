@@ -35,7 +35,7 @@ label2emotion = {0: "others", 1: "happy", 2: "sad", 3: "angry"}
 emotion2label = {"others": 0, "happy": 1, "sad": 2, "angry": 3}
 
 
-def preprocessData(dataFilePath, mode):
+def preprocessData(dataFilePath, mode, eos=" <eos> "):
     """Load data from a file, process and return indices, conversations and labels in separate lists
     Input:
         dataFilePath : Path to train/test file to be processed
@@ -73,7 +73,7 @@ def preprocessData(dataFilePath, mode):
                 label = emotion2label[line[4]]
                 labels.append(label)
 
-            conv = ' <eos> '.join(line[1:4])
+            conv = f'{eos}'.join(line[1:4])
 
             # Remove any duplicate spaces
             duplicateSpacePattern = re.compile(r'\ +')
